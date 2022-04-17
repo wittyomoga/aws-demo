@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: s3fileuploader
+  profiles:
+    active: dev 
+
+server:
+  servlet:
+    context-path: /uploader
+  port: 9090
+
+

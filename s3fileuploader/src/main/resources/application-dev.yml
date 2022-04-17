@@ -1,0 +1,40 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2MB
+      max-file-size: 20MB
+      max-request-size: 50MB
+  main:    allow-bean-definition-overriding: true
+
+cloud:
+  aws:
+    credentials:
+      profile-name: darkrose
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+    dynamodb:
+      region: us-east-1 
+
+appconfig:      
+  bucket:
+    name: awstg-s3-fileupload
+
+# scope must be mentioned. openid mandatory. profile and email is to get the profile name in app    
+security:
+  oauth2:
+    client:
+      client-id: ##########
+      client-secret: ####################
+      access-token-uri: https://dev-##########.okta.com/oauth2/default/v1/token
+      user-authorization-uri: https://dev-##########.okta.com/oauth2/default/v1/authorize
+      scope:
+      - openid
+      - profile
+      - email
+    resource:
+      user-info-uri: https://dev-##########.okta.com/oauth2/default/v1/userinfo    
+    
+    ##########
